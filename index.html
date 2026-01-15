@@ -6,41 +6,63 @@
 </head>
 <body>
 
-    <!-- My Name -->
-    <h1>Ganesh</h1>
+    <!-- Header Section -->
+    <header>
+        <h1>Ganesh</h1>
+        <p>
+            Hello! My name is Ganesh. I am a BCA final year student and I am learning
+            web development to start my career in the IT industry.
+        </p>
+    </header>
 
-    <!-- Short Introduction -->
-    <p>
-        Hello! My name is Ganesh. I am a BCA final year student and I am learning
-        web development to build my career in the IT field.
-    </p>
+    <!-- Main Content -->
+    <main>
 
-    <!-- Education -->
-    <h2>Education</h2>
-    <p>BCA (Final Year)</p>
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            <p>BCA (Final Year)</p>
+        </section>
 
-    <!-- Skills -->
-    <h2>Skills</h2>
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript (Learning)</li>
-    </ul>
+        <!-- Skills Section -->
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript (Learning)</li>
+            </ul>
+        </section>
 
-    <!-- Contact Form -->
-    <h2>Contact Me</h2>
-    <form>
-        <label>Name:</label><br>
-        <input type="text" placeholder="Enter your name"><br><br>
+        <!-- Contact Form Section -->
+        <section>
+            <h2>Contact Me</h2>
 
-        <label>Email:</label><br>
-        <input type="email" placeholder="Enter your email"><br><br>
+            <form>
 
-        <label>Message:</label><br>
-        <textarea rows="4" placeholder="Enter your message"></textarea><br><br>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <br><br>
 
-        <input type="submit" value="Send">
-    </form>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" rows="4" placeholder="Enter your message" required></textarea>
+                <br><br>
+
+                <input type="submit" value="Send Message">
+
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2026 Rohit. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
