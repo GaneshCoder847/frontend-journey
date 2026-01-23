@@ -1,5 +1,8 @@
-const button = document.getElementById("exploreBtn");
+const btn = document.getElementById("exploreBtn");
+const message = document.getElementById("message");
 
-button.addEventListener("click", function () {
-    alert("Welcome to my Frontend Journey 🚀");
+btn.addEventListener("click", function () {
+  message.style.display = "block";
+  message.style.color = "#00bcd4";
+  message.style.fontWeight = "bold";
 });
