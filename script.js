@@ -1,7 +1,14 @@
-const button = document.getElementById("journeyBtn");
-const text = document.getElementById("journeyText");
+const journeyBtn = document.getElementById("journeyBtn");
+const message = document.getElementById("message");
 
-button.addEventListener("click", function () {
-    text.textContent = "I am consistently improving my frontend skills 🚀";
-    button.textContent = "Journey Started ✔";
+let isVisible = false;
+
+journeyBtn.addEventListener("click", () => {
+    if (!isVisible) {
+        message.style.display = "block";
+        isVisible = true;
+    } else {
+        message.style.display = "none";
+        isVisible = false;
+    }
 });
