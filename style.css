@@ -133,3 +133,14 @@ footer {
         flex-direction: column;
     }
 }
+/* Smooth animation */
+.container {
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+/* Active state */
+.container.active {
+    background-color: #e8f0ff;
+    transform: scale(1.02);
+}
+
