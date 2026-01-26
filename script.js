@@ -1,14 +1,19 @@
-const journeyBtn = document.getElementById("journeyBtn");
-const message = document.getElementById("message");
+const button = document.getElementById("toggleBtn");
+const text = document.getElementById("statusText");
+const card = document.getElementById("card");
 
-let isVisible = false;
+let isOpen = false;
 
-journeyBtn.addEventListener("click", () => {
-    if (!isVisible) {
-        message.style.display = "block";
-        isVisible = true;
+button.addEventListener("click", function () {
+    if (!isOpen) {
+        text.innerText = "Welcome to my Frontend Journey 🚀";
+        button.innerText = "Hide Journey";
+        card.classList.add("active");
+        isOpen = true;
     } else {
-        message.style.display = "none";
-        isVisible = false;
+        text.innerText = "I am learning frontend development.";
+        button.innerText = "Explore My Journey";
+        card.classList.remove("active");
+        isOpen = false;
     }
 });
