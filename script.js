@@ -1,3 +1,6 @@
+const progressFill = document.getElementById("progressFill");
+const progressText = document.getElementById("progressText");
+
 const button = document.getElementById("toggleBtn");
 const text = document.getElementById("statusText");
 const card = document.getElementById("card");
@@ -15,5 +18,14 @@ button.addEventListener("click", function () {
         button.innerText = "Explore My Journey";
         card.classList.remove("active");
         isOpen = false;
+    }
+});
+let progress = 0;
+
+button.addEventListener("click", function () {
+    if (progress < 100) {
+        progress += 20;
+        progressFill.style.width = progress + "%";
+        progressText.innerText = "Progress: " + progress + "%";
     }
 });
