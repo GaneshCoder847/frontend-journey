@@ -28,4 +28,12 @@ button.addEventListener("click", function () {
         progressFill.style.width = progress + "%";
         progressText.innerText = "Progress: " + progress + "%";
     }
+
+    
+    if (progress >= 100) {
+        progressText.innerText = "Journey Complete 🎉";
+        button.innerText = "Journey Completed 🚀";
+        button.disabled = true;
+    }
 });
+
