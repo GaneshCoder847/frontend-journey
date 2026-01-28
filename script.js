@@ -29,11 +29,25 @@ button.addEventListener("click", function () {
         progressText.innerText = "Progress: " + progress + "%";
     }
 
-    
     if (progress >= 100) {
         progressText.innerText = "Journey Complete 🎉";
         button.innerText = "Journey Completed 🚀";
         button.disabled = true;
+
+        resetBtn.style.display = "inline-block";
     }
 });
+
+// RESET LOGIC
+resetBtn.addEventListener("click", function () {
+    progress = 0;
+    progressFill.style.width = "0%";
+    progressText.innerText = "Progress: 0%";
+
+    button.innerText = "Explore My Journey";
+    button.disabled = false;
+
+    resetBtn.style.display = "none";
+});
+
 
