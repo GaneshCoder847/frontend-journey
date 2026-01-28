@@ -161,4 +161,11 @@ footer {
     background-color: #007bff;
     transition: width 0.4s ease;
 }
+#resetBtn {
+    background-color: #6c757d;
+}
+
+#resetBtn:hover {
+    background-color: #5a6268;
+}
 
