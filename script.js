@@ -9,7 +9,7 @@ let isOpen = false;
 
 button.addEventListener("click", function () {
     if (!isOpen) {
-        text.innerText = "Welcome to my Frontend Journey 🚀";
+        text.innerText = "Welcome to my Frontend Journey. 🚀";
         button.innerText = "Hide Journey";
         card.classList.add("active");
         isOpen = true;
