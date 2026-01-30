@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
     <!-- Intro Card -->
@@ -31,9 +30,7 @@
                 <div class="progress-fill" id="progressFill"></div>
             </div>
         </div>
-
     </div>
-
 
     <!-- Header Section -->
     <header>
@@ -47,26 +44,56 @@
     <!-- Main Layout -->
     <main class="layout">
 
-        <section class="left">
-            <h2>About Me</h2>
-            <p>
-                I am a BCA final year student focused on learning web development to build a career in IT
-            </p>
-        </section>
+        <!-- 🔹 NEW WRAPPER START -->
+        <div class="content-grid">
 
-        <section class="right">
-            <h2>Education</h2>
-            <p>BCA (Final Year)</p>
+            <!-- LEFT COLUMN -->
+            <div class="about-column">
+                <section>
+                    <h2>About Me</h2>
+                    <p>
+                        I am a BCA final year student focused on learning web development to build a career in IT
+                    </p>
+                </section>
 
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript (Learning)</li>
-            </ul>
-        </section>
+                <section>
+                    <h2>Education</h2>
+                    <p>BCA (Final Year)</p>
+                </section>
 
-        <!-- Contact Section -->
+                <section>
+                    <h2>Skills</h2>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript (Learning)</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <section class="projects">
+                <h2>Projects</h2>
+
+                <div class="project-list">
+                    <div class="project-card">
+                        <h3>Frontend Journey</h3>
+                        <p>A personal website to track my daily frontend learning progress.</p>
+                        <span>Tech: HTML, CSS, JavaScript</span>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Profile Page</h3>
+                        <p>A simple responsive profile page with contact form.</p>
+                        <span>Tech: HTML, CSS</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- 🔹 NEW WRAPPER END -->
+
+        <!-- Contact Section (full width) -->
         <section>
             <h2>Contact Me</h2>
 
@@ -93,7 +120,7 @@
     <footer>
         <p>© 2026 Ganesh. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
-
 </html>
