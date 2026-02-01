@@ -10,6 +10,20 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f6f8;
 }
+body {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
 /* Intro card */
@@ -47,6 +61,16 @@ body {
 
 .btn:active {
     transform: translateY(1px);
+}
+button,
+input[type="submit"] {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    transform: scale(1.05);
+    opacity: 0.95;
 }
 
 
@@ -247,5 +271,14 @@ section {
     form textarea {
         width: 100%;
     }
+}
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
