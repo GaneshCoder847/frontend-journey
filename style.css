@@ -291,4 +291,32 @@ section {
     opacity: 1;
     transform: translateY(0);
 }
+.skills {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill {
+    background: #f1f5ff;
+    color: #333;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+.skill:hover {
+    background: #007bff;
+    color: white;
+    transform: translateY(-3px);
+}
 
