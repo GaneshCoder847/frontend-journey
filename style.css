@@ -363,4 +363,22 @@ section:nth-child(4) { animation-delay: 0.4s; }
 #topBtn:hover {
     background-color: #0056b3;
 }
+.navbar {
+    margin-top: 15px;
+}
+
+.navbar a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+.navbar a.active {
+    color: #0056b3;
+    font-weight: bold;
+}
 
