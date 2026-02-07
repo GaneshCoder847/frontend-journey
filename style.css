@@ -381,4 +381,16 @@ section:nth-child(4) { animation-delay: 0.4s; }
     color: #0056b3;
     font-weight: bold;
 }
+header {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+nav a.active {
+    color: #0d6efd;
+    font-weight: 600;
+    border-bottom: 2px solid #0d6efd;
+}
 
