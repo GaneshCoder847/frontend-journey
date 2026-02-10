@@ -3,127 +3,217 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganesh | Portfolio</title>
+    <meta name="description" content="Ganesh - BCA Final Year Student & Aspiring Web Developer. View my projects, skills, and get in touch.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <nav class="navbar">
-        <a href="#about" class="nav-link active">About</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-
-
 </head>
 
 <body>
 
-    <!-- Intro Card -->
-    <div class="container" id="card">
-        <h1>Frontend Journey</h1>
+    <!-- Sticky Navigation -->
+    <header id="siteHeader">
+        <div class="header-inner">
+            <a href="#" class="logo">G<span class="logo-dot">.</span></a>
+            <nav class="navbar" id="navbar">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
 
-        <p id="statusText">
-            I am learning frontend development.
-        </p>
-
-        <button id="toggleBtn" class="btn">
-            Explore My Journey
-        </button>
-        <button id="resetBtn" class="btn" style="display: none; margin-top: 10px;">
-            Reset Journey 🔄
-        </button>
-
-        <div class="progress-box">
-            <p id="progressText">Progress: 0%</p>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1 class="hero-name">Ganesh</h1>
+            <p class="hero-tagline">BCA Final Year Student &amp; Aspiring Web Developer</p>
+            <p class="hero-description">
+                I am learning web development to start my career in the IT industry.
+                Passionate about building clean, responsive websites.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
         </div>
-    </div>
-
-    <!-- Header Section -->
-    <header>
-        <h1>Ganesh</h1>
-        <p>
-            Hello! My name is Ganesh. I am a BCA final year student and I am learning
-            web development to start my career in the IT industry.
-        </p>
-    </header>
+        <div class="hero-visual">
+            <div class="code-window">
+                <div class="code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="code-title">about.js</span>
+                </div>
+                <pre class="code-body"><code><span class="code-keyword">const</span> <span class="code-variable">developer</span> = {
+  <span class="code-property">name</span>: <span class="code-string">"Ganesh"</span>,
+  <span class="code-property">role</span>: <span class="code-string">"Web Developer"</span>,
+  <span class="code-property">skills</span>: [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JS"</span>],
+  <span class="code-property">learning</span>: <span class="code-boolean">true</span>
+};</code></pre>
+            </div>
+        </div>
+    </section>
 
     <!-- Main Layout -->
     <main class="layout">
 
-        <!-- 🔹 NEW WRAPPER START -->
-        <div class="content-grid">
-
-            <!-- LEFT COLUMN -->
-            <div class="about-column">
-                <section id="about" class="left reveal">
-                    <h2>About Me</h2>
-                    <p>
-                        I am a BCA final year student focused on learning web development to build a career in IT
-                    </p>
-                </section>
-
-                <section id="education" class="right reveal">
-                    <h2>Education</h2>
-                    <p>BCA (Final Year)</p>
-                </section>
-
-                <section id="skills" class="skills">
-                    <h2>Skills</h2>
-
-                    <div class="skill-list">
-                        <span class="skill">HTML</span>
-                        <span class="skill">CSS</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">Responsive Design</span>
-                    </div>
-                </section>
-
-
+        <!-- About Section -->
+        <section id="about" class="reveal">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>About Me</h2>
             </div>
+            <p>
+                I am a BCA final year student focused on learning web development to build a career in IT.
+                I enjoy turning ideas into real, working web pages and am constantly expanding my knowledge
+                of frontend technologies.
+            </p>
+        </section>
 
-            <!-- RIGHT COLUMN -->
-            <section id="projects" class="projects reveal">
-                <h2>Projects</h2>
+        <!-- Education Section -->
+        <section id="education" class="reveal">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Education</h2>
+            </div>
+            <div class="education-card">
+                <div class="edu-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Bachelor of Computer Applications (BCA)</h3>
+                    <p class="edu-status">Final Year - In Progress</p>
+                </div>
+            </div>
+        </section>
 
-                <div class="project-list">
-                    <div class="project-card">
-                        <h3>Frontend Journey</h3>
-                        <p>A personal website to track my daily frontend learning progress.</p>
-                        <span>Tech: HTML, CSS, JavaScript</span>
+        <!-- Skills Section -->
+        <section id="skills" class="skills reveal">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Skills</h2>
+            </div>
+            <div class="skill-list">
+                <span class="skill" data-level="Advanced">HTML</span>
+                <span class="skill" data-level="Advanced">CSS</span>
+                <span class="skill" data-level="Intermediate">JavaScript</span>
+                <span class="skill" data-level="Intermediate">Responsive Design</span>
+            </div>
+        </section>
+
+        <!-- Journey Section (Interactive Card) -->
+        <section id="journey" class="reveal">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>My Frontend Journey</h2>
+            </div>
+            <div class="container" id="card">
+                <p id="statusText">
+                    I am learning frontend development. Click below to explore!
+                </p>
+
+                <div class="journey-buttons">
+                    <button id="toggleBtn" class="btn btn-primary">
+                        Explore My Journey
+                    </button>
+                    <button id="resetBtn" class="btn btn-secondary" style="display: none;">
+                        Reset Journey
+                    </button>
+                </div>
+
+                <div class="progress-box">
+                    <div class="progress-info">
+                        <p id="progressText">Progress: 0%</p>
                     </div>
-
-                    <div class="project-card">
-                        <h3>Profile Page</h3>
-                        <p>A simple responsive profile page with contact form.</p>
-                        <span>Tech: HTML, CSS</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </div>
-        <!-- 🔹 NEW WRAPPER END -->
+        <!-- Projects Section -->
+        <section id="projects" class="projects reveal">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Projects</h2>
+            </div>
 
-        <!-- Contact Section (full width) -->
-        <section id="contact">
-            <h2>Contact Me</h2>
+            <div class="project-list">
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Frontend Journey</h3>
+                    <p>A personal website to track my daily frontend learning progress.</p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
 
-            <form>
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" placeholder="Enter your name" required>
-                <br><br>
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>Profile Page</h3>
+                    <p>A simple responsive profile page with contact form.</p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" placeholder="Enter your email" required>
-                <br><br>
+        <!-- Contact Section -->
+        <section id="contact" class="reveal">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Contact Me</h2>
+            </div>
+            <p class="contact-intro">Have a question or want to work together? Drop me a message!</p>
 
-                <label for="message">Message:</label><br>
-                <textarea id="message" rows="4" placeholder="Enter your message" required></textarea>
-                <br><br>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your name" required>
+                </div>
 
-                <input type="submit" value="Send Message">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Send Message</button>
             </form>
         </section>
 
@@ -131,13 +221,21 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Ganesh. All rights reserved.</p>
+        <div class="footer-inner">
+            <p class="footer-brand">Ganesh<span class="logo-dot">.</span></p>
+            <p class="footer-copy">&copy; 2026 Ganesh. All rights reserved.</p>
+        </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="topBtn" title="Go to top" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
     <script src="script.js"></script>
-    <button id="topBtn" title="Go to top">⬆️</button>
 
 </body>
 
 </html>
-
