@@ -1,117 +1,189 @@
-const progressFill = document.getElementById("progressFill");
-const progressText = document.getElementById("progressText");
+document.addEventListener("DOMContentLoaded", function () {
 
-const button = document.getElementById("toggleBtn");
-const text = document.getElementById("statusText");
-const card = document.getElementById("card");
+    // ===== DOM REFERENCES =====
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
+    const toggleBtn = document.getElementById("toggleBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const statusText = document.getElementById("statusText");
+    const card = document.getElementById("card");
+    const topBtn = document.getElementById("topBtn");
+    const siteHeader = document.getElementById("siteHeader");
+    const hamburger = document.getElementById("hamburger");
+    const navbar = document.getElementById("navbar");
 
-let isOpen = false;
+    // ===== JOURNEY INTERACTIVE CARD =====
+    let isOpen = false;
+    let progress = 0;
 
-button.addEventListener("click", function () {
-    if (!isOpen) {
-        text.innerText = "Welcome to my Frontend Journey. 🚀";
-        button.innerText = "Hide Journey";
-        card.classList.add("active");
-        isOpen = true;
-    } else {
-        text.innerText = "I am learning frontend development.";
-        button.innerText = "Explore My Journey";
-        card.classList.remove("active");
-        isOpen = false;
-    }
-});
-let progress = 0;
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", function () {
+            if (!isOpen) {
+                statusText.innerText = "Welcome to my Frontend Journey!";
+                toggleBtn.innerText = "Hide Journey";
+                card.classList.add("active");
+                isOpen = true;
+            } else {
+                statusText.innerText = "I am learning frontend development. Click below to explore!";
+                toggleBtn.innerText = "Explore My Journey";
+                card.classList.remove("active");
+                isOpen = false;
+            }
 
-button.addEventListener("click", function () {
-    if (progress < 100) {
-        progress += 20;
-        progressFill.style.width = progress + "%";
-        progressText.innerText = "Progress: " + progress + "%";
-    }
+            // Progress logic
+            if (progress < 100) {
+                progress += 20;
+                progressFill.style.width = progress + "%";
+                progressText.innerText = "Progress: " + progress + "%";
+            }
 
-    if (progress >= 100) {
-        progressText.innerText = "Journey Complete 🎉";
-        button.innerText = "Journey Completed 🚀";
-        button.disabled = true;
-
-        resetBtn.style.display = "inline-block";
-    }
-});
-
-// RESET LOGIC
-resetBtn.addEventListener("click", function () {
-    progress = 0;
-    progressFill.style.width = "0%";
-    progressText.innerText = "Progress: 0%";
-
-    button.innerText = "Explore My Journey";
-    button.disabled = false;
-
-    resetBtn.style.display = "none";
-});
-const reveals = document.querySelectorAll(".reveal");
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
+            if (progress >= 100) {
+                progressText.innerText = "Journey Complete!";
+                toggleBtn.innerText = "Journey Completed";
+                toggleBtn.disabled = true;
+                toggleBtn.style.opacity = "0.6";
+                toggleBtn.style.cursor = "not-allowed";
+                resetBtn.style.display = "inline-flex";
             }
         });
-    },
-    {
-        threshold: 0.2
     }
-);
 
-reveals.forEach(section => {
-    observer.observe(section);
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const topBtn = document.getElementById("topBtn");
+    // ===== RESET LOGIC =====
+    if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+            progress = 0;
+            isOpen = false;
+            progressFill.style.width = "0%";
+            progressText.innerText = "Progress: 0%";
+            statusText.innerText = "I am learning frontend development. Click below to explore!";
+            toggleBtn.innerText = "Explore My Journey";
+            toggleBtn.disabled = false;
+            toggleBtn.style.opacity = "1";
+            toggleBtn.style.cursor = "pointer";
+            card.classList.remove("active");
+            resetBtn.style.display = "none";
+        });
+    }
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 20) {
-            topBtn.style.display = "block";
-        } else {
-            topBtn.style.display = "none";
-        }
+    // ===== SCROLL REVEAL (IntersectionObserver) =====
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        },
+        { threshold: 0.15 }
+    );
+
+    reveals.forEach(function (el) {
+        revealObserver.observe(el);
     });
 
-    topBtn.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+    // ===== BACK TO TOP BUTTON =====
+    if (topBtn) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                topBtn.classList.add("visible");
+            } else {
+                topBtn.classList.remove("visible");
+            }
+        });
+
+        topBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    // ===== STICKY HEADER SHADOW ON SCROLL =====
+    if (siteHeader) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 10) {
+                siteHeader.classList.add("scrolled");
+            } else {
+                siteHeader.classList.remove("scrolled");
+            }
+        });
+    }
+
+    // ===== ACTIVE NAV LINK ON SCROLL =====
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function updateActiveNav() {
+        var scrollPos = window.scrollY + 100;
+
+        sections.forEach(function (section) {
+            var top = section.offsetTop;
+            var height = section.offsetHeight;
+            var id = section.getAttribute("id");
+
+            if (scrollPos >= top && scrollPos < top + height) {
+                navLinks.forEach(function (link) {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === "#" + id) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener("scroll", updateActiveNav);
+
+    // ===== HAMBURGER MOBILE MENU =====
+    if (hamburger && navbar) {
+        hamburger.addEventListener("click", function () {
+            hamburger.classList.toggle("active");
+            navbar.classList.toggle("open");
+        });
+
+        // Close menu on nav link click
+        navLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+                hamburger.classList.remove("active");
+                navbar.classList.remove("open");
+            });
+        });
+    }
+
+    // ===== SMOOTH SCROLL FOR NAV LINKS =====
+    navLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            var targetId = this.getAttribute("href");
+            if (targetId && targetId.startsWith("#")) {
+                var target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: "smooth" });
+                }
+            }
         });
     });
+
+    // ===== CONTACT FORM HANDLING =====
+    var contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var submitBtn = contactForm.querySelector("button[type='submit']");
+            var originalText = submitBtn.innerText;
+            submitBtn.innerText = "Message Sent!";
+            submitBtn.style.background = "#22c55e";
+            submitBtn.style.borderColor = "#22c55e";
+            submitBtn.disabled = true;
+
+            setTimeout(function () {
+                submitBtn.innerText = originalText;
+                submitBtn.style.background = "";
+                submitBtn.style.borderColor = "";
+                submitBtn.disabled = false;
+                contactForm.reset();
+            }, 2500);
+        });
+    }
+
 });
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".navbar a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 60) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-    });
-});
-const navLinks = document.querySelectorAll(".nav-link");
-
-navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
-  });
-});
-
-
